@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -246,12 +246,12 @@
 		55C244FB1E72B79A008BAFE5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = PZ;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Jee;
 				TargetAttributes = {
 					55C245021E72B79A008BAFE5 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = X5ZLJJFK53;
 						ProvisioningStyle = Automatic;
 					};
 					55C2451B1E72B79A008BAFE5 = {
@@ -269,7 +269,7 @@
 				};
 			};
 			buildConfigurationList = 55C244FE1E72B79A008BAFE5 /* Build configuration list for PBXProject "PZDemo" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -513,7 +513,10 @@
 			baseConfigurationReference = B01C50B3761974C1B2FA8ED3 /* Pods-PZDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X5ZLJJFK53;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PEVT6P3LTT;
 				GCC_PREFIX_HEADER = PZDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = PZDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -527,7 +530,9 @@
 			baseConfigurationReference = FBB4F51DF164CB6F369B3EE1 /* Pods-PZDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X5ZLJJFK53;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = PEVT6P3LTT;
 				GCC_PREFIX_HEADER = PZDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = PZDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
