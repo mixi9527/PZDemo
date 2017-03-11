@@ -7,7 +7,7 @@
 //
 
 #import "ResultViewController.h"
-#import "ViewController.h"
+#import "SearchViewController.h"
 
 
 @interface ResultViewController ()
@@ -22,7 +22,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.rt_navigationController pushViewController:[ViewController new] animated:YES];
+    [self.rt_navigationController pushViewController:[SearchViewController new] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -1,15 +1,15 @@
 //
-//  ViewController.m
+//  SearchViewController.m
 //  PZDemo
 //
 //  Created by 张佳佩 on 2017/03/10.
 //  Copyright © 2017年 Jee. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SearchViewController.h"
 #import "ResultViewController.h"
 
-@interface ViewController () <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SearchViewController () <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
 /// 搜索栏
 @property (strong, nonatomic) UITextField *textField;
@@ -28,7 +28,7 @@
 @property (strong, nonatomic) NSArray *hots;
 @end
 
-@implementation ViewController
+@implementation SearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -128,6 +128,7 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"historiesCell"];
         }
+        [cell.textLabel setFont:kFont(14)];
         [cell.textLabel setText:@"搜索记录1"];
         return cell;
     }
@@ -171,7 +172,7 @@
     // 文本输入框
     _textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 7, kSW - 60, 30)];
     _textField.backgroundColor = kRGB(0xEFEFEF);
-    _textField.layer.cornerRadius = 15.0f;
+    _textField.layer.cornerRadius = 8.0f;
     _textField.placeholder = @"联想笔记本";
     _textField.font = kFont(14);
     _textField.textColor = kRGB(0x31323A);

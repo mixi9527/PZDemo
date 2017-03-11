@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-#import "ViewController.h"
+#import "SearchViewController.h"
 
 
 @interface RootViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -32,6 +32,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"rootCell"];
     }
+    [cell.textLabel setFont:kFont(14)];
     [cell.textLabel setText:_showArray[indexPath.row]];
     return cell;
 }
@@ -41,7 +42,7 @@
     
     switch (indexPath.row) {
         case 0:
-            [self.rt_navigationController pushViewController:[ViewController new] animated:YES];
+            [self.rt_navigationController pushViewController:[SearchViewController new] animated:YES];
             break;
             
         default:
