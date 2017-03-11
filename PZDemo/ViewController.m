@@ -156,7 +156,7 @@
     _textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 7, kSW - 60, 30)];
     _textField.backgroundColor = kRGB(0xEFEFEF);
     _textField.layer.cornerRadius = 15.0f;
-    _textField.placeholder = @"联想笔记本placeholder";
+    _textField.placeholder = @"联想笔记本";
     _textField.font = kFont(14);
     _textField.textColor = kRGB(0x31323A);
     _textField.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
