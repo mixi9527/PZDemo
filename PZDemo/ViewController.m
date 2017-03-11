@@ -135,19 +135,35 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ResultViewController *vc = [ResultViewController new];
+    ResultViewController *toVC = [ResultViewController new];
     if (_tips.count > 0) {
         // 点击了搜索提示
-        [self.rt_navigationController pushViewController:vc animated:NO complete:^(BOOL finished) {
-            vc.title =  _tips[indexPath.row];
-        }];
     } else {
         // 点击了历史记录
-        
-        [self.rt_navigationController pushViewController:vc animated:YES complete:^(BOOL finished) {
-            vc.title =  @"历史记录";
-        }];
     }
+    [self.rt_navigationController pushViewController:toVC animated:YES];
+    [self removeViewController];
+    
+}
+
+/// 移除重复的搜索和搜索结果视图控制器
+- (void)removeViewController {
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[self.rt_navigationController rt_viewControllers]];
+    for (int i = 0; i < array.count; i++) {
+        UIViewController *vc = [array objectAtIndex:i];
+        if ([vc isKindOfClass:[self class]]) {
+            // 去掉之前的搜索界面
+            [array removeObject:vc];
+            i--;
+        } else if ([vc isKindOfClass:[ResultViewController class]]) {
+            // 去掉重复的药品列表界面
+            [array removeObject:vc];
+            i--;
+        }
+    }
+    [array addObject:[ResultViewController new]];
+    [self.rt_navigationController setViewControllers:array animated:NO];
+
 }
 
 /// 初始化导航栏搜索栏
@@ -179,13 +195,13 @@
     _textField.leftViewMode = UITextFieldViewModeAlways;
     _textField.leftView = searchView;
     // 右边扫码小图标
-    UIView *scanView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    UIImageView *scanIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"scan"]];
-    [scanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scan)]];
-    [scanIcon setCenter:CGPointMake(15, 15)];
-    [scanView addSubview:scanIcon];
-    _textField.rightViewMode = UITextFieldViewModeUnlessEditing;
-    _textField.rightView = scanView;
+//    UIView *scanView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+//    UIImageView *scanIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"scan"]];
+//    [scanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scan)]];
+//    [scanIcon setCenter:CGPointMake(15, 15)];
+//    [scanView addSubview:scanIcon];
+//    _textField.rightViewMode = UITextFieldViewModeUnlessEditing;
+//    _textField.rightView = scanView;
     // 取消按钮
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
@@ -229,6 +245,7 @@
         DLog(@"%@", searchText);
         resultVC.title = searchText;
     }];
+    [self removeViewController];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
