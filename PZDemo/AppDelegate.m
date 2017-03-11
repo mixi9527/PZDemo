@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "RootViewController.h"
+#import "PZRootViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = kRGB(0XFFFFFF);
-    RTRootNavigationController *navigationController = [[RTRootNavigationController alloc] initWithRootViewController:[RootViewController new]];
+    RTRootNavigationController *navigationController = [[RTRootNavigationController alloc] initWithRootViewController:[PZRootViewController new]];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;

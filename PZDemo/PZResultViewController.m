@@ -1,20 +1,20 @@
 //
-//  ResultViewController.m
+//  PZResultViewController.m
 //  PZDemo
 //
 //  Created by 张佳佩 on 2017/03/10.
 //  Copyright © 2017年 Jee. All rights reserved.
 //
 
-#import "ResultViewController.h"
-#import "SearchViewController.h"
+#import "PZResultViewController.h"
+#import "PZSearchViewController.h"
 
 
-@interface ResultViewController ()
+@interface PZResultViewController ()
 
 @end
 
-@implementation ResultViewController
+@implementation PZResultViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,7 +22,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.rt_navigationController pushViewController:[SearchViewController new] animated:YES];
+    [self.rt_navigationController pushViewController:[PZSearchViewController new] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

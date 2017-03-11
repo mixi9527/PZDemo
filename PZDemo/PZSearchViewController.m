@@ -1,15 +1,15 @@
 //
-//  SearchViewController.m
+//  PZSearchViewController.m
 //  PZDemo
 //
 //  Created by 张佳佩 on 2017/03/10.
 //  Copyright © 2017年 Jee. All rights reserved.
 //
 
-#import "SearchViewController.h"
-#import "ResultViewController.h"
+#import "PZSearchViewController.h"
+#import "PZResultViewController.h"
 
-@interface SearchViewController () <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface PZSearchViewController () <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
 /// 搜索栏
 @property (strong, nonatomic) UITextField *textField;
@@ -28,11 +28,10 @@
 @property (strong, nonatomic) NSArray *hots;
 @end
 
-@implementation SearchViewController
+@implementation PZSearchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setEdgesForExtendedLayout:UIRectEdgeNone];
     
     [self createSearchContainerView];
     [self createTableView];
@@ -136,7 +135,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ResultViewController *toVC = [ResultViewController new];
+    PZResultViewController *toVC = [PZResultViewController new];
     if (_tips.count > 0) {
         // 点击了搜索提示
     } else {
@@ -156,13 +155,13 @@
             // 去掉之前的搜索界面
             [array removeObject:vc];
             i--;
-        } else if ([vc isKindOfClass:[ResultViewController class]]) {
+        } else if ([vc isKindOfClass:[PZResultViewController class]]) {
             // 去掉重复的药品列表界面
             [array removeObject:vc];
             i--;
         }
     }
-    [array addObject:[ResultViewController new]];
+    [array addObject:[PZResultViewController new]];
     [self.rt_navigationController setViewControllers:array animated:NO];
 
 }
@@ -241,7 +240,7 @@
         DLog(@"没有输入东西....%@.....", textField.placeholder);
         searchText = textField.placeholder;
     }
-    ResultViewController *resultVC = [ResultViewController new];
+    PZResultViewController *resultVC = [PZResultViewController new];
     [self.rt_navigationController pushViewController:resultVC animated:YES complete:^(BOOL finished) {
         DLog(@"%@", searchText);
         resultVC.title = searchText;

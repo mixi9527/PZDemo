@@ -8,17 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		3ED4A39C5A4E6064BB411182 /* libPods-PZDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28892DB9C74E8BCF767E7A64 /* libPods-PZDemo.a */; };
+		55B880D01E743E0000A96629 /* PZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55B880CF1E743E0000A96629 /* PZBaseViewController.m */; };
 		55C245081E72B79A008BAFE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C245071E72B79A008BAFE5 /* main.m */; };
 		55C2450B1E72B79A008BAFE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C2450A1E72B79A008BAFE5 /* AppDelegate.m */; };
-		55C2450E1E72B79A008BAFE5 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C2450D1E72B79A008BAFE5 /* SearchViewController.m */; };
+		55C2450E1E72B79A008BAFE5 /* PZSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C2450D1E72B79A008BAFE5 /* PZSearchViewController.m */; };
 		55C245131E72B79A008BAFE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55C245121E72B79A008BAFE5 /* Assets.xcassets */; };
 		55C245161E72B79A008BAFE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55C245141E72B79A008BAFE5 /* LaunchScreen.storyboard */; };
 		55C245211E72B79A008BAFE5 /* PZDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C245201E72B79A008BAFE5 /* PZDemoTests.m */; };
 		55C2452C1E72B79B008BAFE5 /* PZDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C2452B1E72B79B008BAFE5 /* PZDemoUITests.m */; };
-		55D9E8811E72E00D006222A9 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D9E87F1E72E00D006222A9 /* RootViewController.m */; };
+		55D9E8811E72E00D006222A9 /* PZRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D9E87F1E72E00D006222A9 /* PZRootViewController.m */; };
 		55D9E8821E72E00D006222A9 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D9E8801E72E00D006222A9 /* RootViewController.xib */; };
-		55D9E8861E72F8B1006222A9 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D9E8841E72F8B1006222A9 /* ResultViewController.m */; };
-		55D9E8871E72F8B1006222A9 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D9E8851E72F8B1006222A9 /* ResultViewController.xib */; };
+		55D9E8861E72F8B1006222A9 /* PZResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D9E8841E72F8B1006222A9 /* PZResultViewController.m */; };
+		55D9E8871E72F8B1006222A9 /* PZResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D9E8851E72F8B1006222A9 /* PZResultViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,12 +41,14 @@
 
 /* Begin PBXFileReference section */
 		28892DB9C74E8BCF767E7A64 /* libPods-PZDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PZDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		55B880CE1E743E0000A96629 /* PZBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZBaseViewController.h; sourceTree = "<group>"; };
+		55B880CF1E743E0000A96629 /* PZBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZBaseViewController.m; sourceTree = "<group>"; };
 		55C245031E72B79A008BAFE5 /* PZDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PZDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C245071E72B79A008BAFE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		55C245091E72B79A008BAFE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		55C2450A1E72B79A008BAFE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		55C2450C1E72B79A008BAFE5 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		55C2450D1E72B79A008BAFE5 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		55C2450C1E72B79A008BAFE5 /* PZSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PZSearchViewController.h; sourceTree = "<group>"; };
+		55C2450D1E72B79A008BAFE5 /* PZSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PZSearchViewController.m; sourceTree = "<group>"; };
 		55C245121E72B79A008BAFE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55C245151E72B79A008BAFE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55C245171E72B79A008BAFE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,14 +58,14 @@
 		55C245271E72B79B008BAFE5 /* PZDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PZDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C2452B1E72B79B008BAFE5 /* PZDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PZDemoUITests.m; sourceTree = "<group>"; };
 		55C2452D1E72B79B008BAFE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		55C245391E72BC16008BAFE5 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		55C245391E72BC16008BAFE5 /* PZConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZConstant.h; sourceTree = "<group>"; };
 		55C2453A1E72BD61008BAFE5 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		55D9E87E1E72E00D006222A9 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		55D9E87F1E72E00D006222A9 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		55D9E87E1E72E00D006222A9 /* PZRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZRootViewController.h; sourceTree = "<group>"; };
+		55D9E87F1E72E00D006222A9 /* PZRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZRootViewController.m; sourceTree = "<group>"; };
 		55D9E8801E72E00D006222A9 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
-		55D9E8831E72F8B1006222A9 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
-		55D9E8841E72F8B1006222A9 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
-		55D9E8851E72F8B1006222A9 /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
+		55D9E8831E72F8B1006222A9 /* PZResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZResultViewController.h; sourceTree = "<group>"; };
+		55D9E8841E72F8B1006222A9 /* PZResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZResultViewController.m; sourceTree = "<group>"; };
+		55D9E8851E72F8B1006222A9 /* PZResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PZResultViewController.xib; sourceTree = "<group>"; };
 		B01C50B3761974C1B2FA8ED3 /* Pods-PZDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PZDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PZDemo/Pods-PZDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		FBB4F51DF164CB6F369B3EE1 /* Pods-PZDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PZDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PZDemo/Pods-PZDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +113,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		55B880D11E743EA500A96629 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				55D9E87E1E72E00D006222A9 /* PZRootViewController.h */,
+				55D9E87F1E72E00D006222A9 /* PZRootViewController.m */,
+				55D9E8801E72E00D006222A9 /* RootViewController.xib */,
+				55B880CE1E743E0000A96629 /* PZBaseViewController.h */,
+				55B880CF1E743E0000A96629 /* PZBaseViewController.m */,
+			);
+			name = BaseViewController;
+			sourceTree = "<group>";
+		};
 		55C244FA1E72B79A008BAFE5 = {
 			isa = PBXGroup;
 			children = (
@@ -135,20 +150,18 @@
 		55C245051E72B79A008BAFE5 /* PZDemo */ = {
 			isa = PBXGroup;
 			children = (
+				55B880D11E743EA500A96629 /* BaseViewController */,
 				55C245091E72B79A008BAFE5 /* AppDelegate.h */,
 				55C2450A1E72B79A008BAFE5 /* AppDelegate.m */,
-				55C2450C1E72B79A008BAFE5 /* SearchViewController.h */,
-				55C2450D1E72B79A008BAFE5 /* SearchViewController.m */,
-				55D9E8831E72F8B1006222A9 /* ResultViewController.h */,
-				55D9E8841E72F8B1006222A9 /* ResultViewController.m */,
-				55D9E8851E72F8B1006222A9 /* ResultViewController.xib */,
-				55D9E87E1E72E00D006222A9 /* RootViewController.h */,
-				55D9E87F1E72E00D006222A9 /* RootViewController.m */,
-				55D9E8801E72E00D006222A9 /* RootViewController.xib */,
+				55C2450C1E72B79A008BAFE5 /* PZSearchViewController.h */,
+				55C2450D1E72B79A008BAFE5 /* PZSearchViewController.m */,
+				55D9E8831E72F8B1006222A9 /* PZResultViewController.h */,
+				55D9E8841E72F8B1006222A9 /* PZResultViewController.m */,
+				55D9E8851E72F8B1006222A9 /* PZResultViewController.xib */,
 				55C245121E72B79A008BAFE5 /* Assets.xcassets */,
 				55C245141E72B79A008BAFE5 /* LaunchScreen.storyboard */,
 				55C245171E72B79A008BAFE5 /* Info.plist */,
-				55C245391E72BC16008BAFE5 /* Constant.h */,
+				55C245391E72BC16008BAFE5 /* PZConstant.h */,
 				55C245061E72B79A008BAFE5 /* Supporting Files */,
 			);
 			path = PZDemo;
@@ -296,7 +309,7 @@
 				55C245161E72B79A008BAFE5 /* LaunchScreen.storyboard in Resources */,
 				55C245131E72B79A008BAFE5 /* Assets.xcassets in Resources */,
 				55D9E8821E72E00D006222A9 /* RootViewController.xib in Resources */,
-				55D9E8871E72F8B1006222A9 /* ResultViewController.xib in Resources */,
+				55D9E8871E72F8B1006222A9 /* PZResultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,11 +382,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55C2450E1E72B79A008BAFE5 /* SearchViewController.m in Sources */,
+				55C2450E1E72B79A008BAFE5 /* PZSearchViewController.m in Sources */,
 				55C2450B1E72B79A008BAFE5 /* AppDelegate.m in Sources */,
-				55D9E8811E72E00D006222A9 /* RootViewController.m in Sources */,
-				55D9E8861E72F8B1006222A9 /* ResultViewController.m in Sources */,
+				55D9E8811E72E00D006222A9 /* PZRootViewController.m in Sources */,
+				55D9E8861E72F8B1006222A9 /* PZResultViewController.m in Sources */,
 				55C245081E72B79A008BAFE5 /* main.m in Sources */,
+				55B880D01E743E0000A96629 /* PZBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

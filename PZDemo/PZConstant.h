@@ -1,13 +1,13 @@
 //
-//  Constant.h
+//  PZConstant.h
 //  PZDemo
 //
 //  Created by 张佳佩 on 2017/03/10.
 //  Copyright © 2017年 Jee. All rights reserved.
 //
 
-#ifndef Constant_h
-#define Constant_h
+#ifndef PZConstant_h
+#define PZConstant_h
 
 /// 视图间隔
 #define kViewMargin 8.0f
@@ -57,4 +57,4 @@ _Pragma("clang diagnostic pop")
 #define kBFont(SIZE) [UIFont boldSystemFontOfSize:SIZE]
 
 
-#endif /* Constant_h */
+#endif /* PZConstant_h */

@@ -1,5 +1,5 @@
 //
-//  ResultViewController.h
+//  PZRootViewController.h
 //  PZDemo
 //
 //  Created by 张佳佩 on 2017/03/10.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultViewController : UIViewController
+@interface PZRootViewController : UIViewController
 
 @end

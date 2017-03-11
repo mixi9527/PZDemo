@@ -1,21 +1,21 @@
 //
-//  RootViewController.m
+//  PZRootViewController.m
 //  PZDemo
 //
 //  Created by 张佳佩 on 2017/03/10.
 //  Copyright © 2017年 Jee. All rights reserved.
 //
 
-#import "RootViewController.h"
-#import "SearchViewController.h"
+#import "PZRootViewController.h"
+#import "PZSearchViewController.h"
 
 
-@interface RootViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface PZRootViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *showArray;
 @end
 
-@implementation RootViewController
+@implementation PZRootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +42,7 @@
     
     switch (indexPath.row) {
         case 0:
-            [self.rt_navigationController pushViewController:[SearchViewController new] animated:YES];
+            [self.rt_navigationController pushViewController:[PZSearchViewController new] animated:YES];
             break;
             
         default:
