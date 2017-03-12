@@ -11,4 +11,6 @@
  */
 @interface PZResultViewController : PZBaseViewController
 
+@property (nonatomic, copy) NSString *searchText;
+
 @end

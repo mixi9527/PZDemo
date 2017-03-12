@@ -16,10 +16,11 @@
  通过UItextField实现
  */
 @property (strong, nonatomic) UITextField *textField;
-/// 热门搜索和历史搜索列表视图
-@property (strong, nonatomic) UITableView *searchTableView;
 /// 搜索提示列表视图
 @property (strong, nonatomic) UITableView *tipTableView;
+
+/// 热门搜索和历史搜索列表视图
+@property (strong, nonatomic) UITableView *searchTableView;
 /// 热门搜索容器
 @property (strong, nonatomic) UIView *tableViewHeaderView;
 
@@ -29,6 +30,8 @@
 @property (strong, nonatomic) NSArray *tips;
 /// 热门搜索数据
 @property (strong, nonatomic) NSArray *hots;
+
+@property (nonatomic, strong) PZResultViewController *resultVC;
 @end
 
 @implementation PZSearchViewController
@@ -41,6 +44,24 @@
     _tips = @[].copy;
     _hots = @[].copy;
     _histories = @[@"感冒灵", @"云南白药", @"西瓜霜", @"人生如梦", @"爱如潮水", @"你是个猪", @"测试数据"];
+    _resultVC = [PZResultViewController new];
+}
+
+/// 开始搜索
+- (void)beginSearch:(NSString *)text {
+    _textField.text = text;
+    // 去空格
+    NSString *result = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    // 看剩下的字符串的长度是否为零
+    if (result.length > 0) {
+        // 模拟数据
+        _tips = @[@"搜索提示111", @"搜索提示11123123", @"搜索提示111231312", @"阿3123我是大师傅", @"达瓦发额外确认", @"挖到哇等我", @"服务费特发"];
+        [_tipTableView setHidden:NO];
+        [self.tipTableView reloadData];
+    } else {
+        _tips = @[];
+        [_tipTableView setHidden:YES];
+    }
 }
 
 /// 重写返回按钮
@@ -138,20 +159,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    PZResultViewController *toVC = [PZResultViewController new];
-    NSString *searchText = @"";
     if (_tips.count > 0) {
         // 点击了搜索提示
-        searchText = _tips[indexPath.row];
+        _resultVC.searchText = _tips[indexPath.row];
     } else {
         // 点击了历史记录
-        searchText = _histories[indexPath.row];
+        _resultVC.searchText = _histories[indexPath.row];
     }
     @weakify(self);
-    [self.rt_navigationController pushViewController:toVC animated:YES complete:^(BOOL finished) {
+    [self.rt_navigationController pushViewController:_resultVC animated:YES complete:^(BOOL finished) {
         @strongify(self);
-        toVC.title = searchText;
-        [self removeViewController:toVC];
+        [self removeViewController:self.resultVC];
     }];
     
 }
@@ -204,14 +222,6 @@
     [searchView addSubview:searchIcon];
     _textField.leftViewMode = UITextFieldViewModeAlways;
     _textField.leftView = searchView;
-    // 右边扫码小图标
-//    UIView *scanView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-//    UIImageView *scanIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"scan"]];
-//    [scanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scan)]];
-//    [scanIcon setCenter:CGPointMake(15, 15)];
-//    [scanView addSubview:scanIcon];
-//    _textField.rightViewMode = UITextFieldViewModeUnlessEditing;
-//    _textField.rightView = scanView;
     // 取消按钮
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
@@ -222,41 +232,24 @@
     [self.navigationController.navigationBar addSubview:button];
 }
 
-/// 开始输入文字
+/// 开始输入文字 展示搜索提示
 - (void)textFieldDidChange:(UITextField *)textField {
-    // 去空格
-    NSString *result = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    // 看剩下的字符串的长度是否为零
-    if (result.length > 0) {
-        DLog(@"%@", result);
-        _tips = @[@"搜索提示111", @"搜索提示11123123", @"搜索提示111231312", @"阿3123我是大师傅", @"达瓦发额外确认", @"挖到哇等我", @"服务费特发"];
-        [_tipTableView setHidden:NO];
-        [self.tipTableView reloadData];
-    } else {
-        _tips = @[];
-        [_tipTableView setHidden:YES];
-    }
+    [self beginSearch:textField.text];
 }
 
 /// 点击搜索按钮
 - (void)searchFinished:(UITextField *)textField {
     // 去空格
     NSString *result = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *searchText = @"";
     if (result.length > 0) {
-        DLog(@"点击了搜索按钮, >>>>>%@", textField.text);
-        searchText = textField.text;
+        _resultVC.searchText = textField.text;
     } else {
-        DLog(@"没有输入东西....%@.....", textField.placeholder);
-        searchText = textField.placeholder;
+        _resultVC.searchText = textField.placeholder;
     }
-    PZResultViewController *resultVC = [PZResultViewController new];
     @weakify(self);
-    [self.rt_navigationController pushViewController:resultVC animated:YES complete:^(BOOL finished) {
+    [self.rt_navigationController pushViewController:self.resultVC animated:YES complete:^(BOOL finished) {
         @strongify(self);
-        DLog(@"%@", searchText);
-        resultVC.title = searchText;
-        [self removeViewController:resultVC];
+        [self removeViewController:self.resultVC];
     }];
 }
 

@@ -11,6 +11,7 @@
  */
 @interface PZSearchViewController : PZBaseViewController
 
-
+/// 开始搜索(显示搜索结果列表)
+- (void)beginSearch:(NSString *)text;
 @end
 

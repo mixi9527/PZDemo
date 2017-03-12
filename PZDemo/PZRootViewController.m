@@ -42,7 +42,7 @@
     
     switch (indexPath.row) {
         case 0:
-            [self.rt_navigationController pushViewController:[PZSearchViewController new] animated:YES];
+            [self.navigationController pushViewController:[PZSearchViewController new] animated:YES];
             break;
             
         default:
