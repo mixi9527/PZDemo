@@ -21,13 +21,6 @@
 #define DLog(s, ...)
 #endif
 
-/// 设备的尺寸
-#define kSB [UIScreen mainScreen].bounds
-/// 设备的高度
-#define kSH [[UIScreen mainScreen] bounds].size.height
-/// 设备的宽度
-#define kSW [[UIScreen mainScreen] bounds].size.width
-
 /// 带有RGBA的颜色设置 UIColor *color=RGBA(102, 204, 255, 1.0)
 #define kRGBA(R, G, B, A) [UIColor colorWithRed:R / 255.0 green:G / 255.0 blue:B / 255.0 alpha:A]
 /// 背景色

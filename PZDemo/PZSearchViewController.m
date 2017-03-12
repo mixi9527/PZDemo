@@ -21,8 +21,6 @@
 
 /// 热门搜索和历史搜索列表视图
 @property (strong, nonatomic) UITableView *searchTableView;
-/// 热门搜索容器
-@property (strong, nonatomic) UIView *tableViewHeaderView;
 
 /// 历史搜索数据
 @property (strong, nonatomic) NSArray *histories;
@@ -42,9 +40,10 @@
     [self createSearchContainerView];
     [self createTableView];
     _tips = @[].copy;
-    _hots = @[].copy;
+    _hots = @[@"感冒灵", @"云南白321药", @"西瓜3213霜", @"人生如梦啊哈a", @"爱如潮水", @"你是个猪321", @"测试数据", @"大家都觉得爱11", @"大地挖到哇", @"大气温度", @"地方真的不错", @"风格让他", @"而我却二"];
     _histories = @[@"感冒灵", @"云南白药", @"西瓜霜", @"人生如梦", @"爱如潮水", @"你是个猪", @"测试数据"];
     _resultVC = [PZResultViewController new];
+    [self createHotSearchLabel];
 }
 
 /// 开始搜索
@@ -64,6 +63,45 @@
     }
 }
 
+/// 创建热门标签容器
+- (void)createHotSearchLabel {
+    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
+    contentView.backgroundColor = UIColorHex(#F4F4F4);
+    // 计算位置
+    CGFloat currentX = 8;
+    CGFloat currentY = 8;
+    CGFloat labelHeight = 25;
+    // 主要是控制x和y的位置
+    for (int i = 0; i < _hots.count; i++) {
+        // 计算每个label的宽度
+        CGFloat labelWidth = [self calculateWidthWithText:_hots[i] andFont:kFont(14)] + 20;
+        // 需要换行 (当前x位置 + label宽度 + 右边距 > 视图宽度)
+        if (currentX + labelWidth + 8 > contentView.width) {
+            currentX = 8;
+            currentY = currentY + labelHeight + 8;
+        }
+        // 创建标签
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(currentX, currentY, labelWidth, labelHeight)];
+        label.backgroundColor = kRColor;
+        [label setText:_hots[i]];
+        [label setFont:kFont(13)];
+        label.layer.cornerRadius = 12.0f;
+        label.clipsToBounds = YES;
+        label.tag = i;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.userInteractionEnabled = YES;
+        [label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLabel:)]];
+        // 重新设置x值
+        currentX = currentX + labelWidth + 8;
+        
+        [contentView addSubview:label];
+    }
+    
+    [contentView setHeight:CGRectGetMaxY(contentView.subviews.lastObject.frame) + 8];
+    self.searchTableView.tableHeaderView.height = contentView.height;
+    self.searchTableView.tableHeaderView = contentView;
+}
+
 /// 重写返回按钮
 - (UIBarButtonItem *)customBackItemWithTarget:(id)target action:(SEL)action {
     return nil;
@@ -75,10 +113,6 @@
     _searchTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _searchTableView.delegate = self;
     _searchTableView.dataSource = self;
-    // 头部视图(用来防止热门搜索标签)
-    _tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kSW, 200)];
-    _tableViewHeaderView.backgroundColor = kRColor;
-    _searchTableView.tableHeaderView = _tableViewHeaderView;
     _searchTableView.tableFooterView = [UIView new];
     [self.view addSubview:_searchTableView];
     [_searchTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -117,7 +151,7 @@
     }
     UIView *headerView = [UIView new];
     headerView.backgroundColor = kRGB(0XFFFFFF);
-    headerView.frame = CGRectMake(0, 0, kSW, 40);
+    headerView.frame = CGRectMake(0, 0, kScreenWidth, 40);
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, headerView.height)];
 //    title.backgroundColor = kRColor;
     [title setText:@"搜索历史"];
@@ -128,7 +162,7 @@
     UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //    clearButton.backgroundColor = kRColor;
     [clearButton sizeToFit];
-    [clearButton setFrame:CGRectMake(kSW - 80, 0, 80, headerView.height)];
+    [clearButton setFrame:CGRectMake(kScreenWidth - 80, 0, 80, headerView.height)];
     [clearButton setTitle:@"清除记录" forState:UIControlStateNormal];
     [clearButton setTitleColor:kRGB(0x31323A) forState:UIControlStateNormal];
     [clearButton.titleLabel setFont:kFont(14)];
@@ -194,10 +228,27 @@
 
 }
 
+- (CGFloat)calculateWidthWithText:(NSString *)text andFont:(UIFont *)font {
+    CGSize size = CGSizeMake (MAXFLOAT, MAXFLOAT);
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    CGRect rect = [text boundingRectWithSize:size
+                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:@{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle.copy}
+                                     context:nil];
+    return rect.size.width;
+}
+
+/// 点击热门标签
+- (void)tapLabel:(UIGestureRecognizer *)gr {
+    UILabel *label = (UILabel *)gr.view;
+    DLog(@"%@", label.text);
+}
+
 /// 初始化导航栏搜索栏
 - (void)createSearchContainerView {
     // 文本输入框
-    _textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 7, kSW - 60, 30)];
+    _textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 7, kScreenWidth - 60, 30)];
     _textField.backgroundColor = kRGB(0xEFEFEF);
     _textField.layer.cornerRadius = 8.0f;
     _textField.placeholder = @"联想笔记本";
@@ -228,7 +279,7 @@
     [button setTitleColor:kRGB(0x31323A) forState:UIControlStateNormal];
     [button.titleLabel setFont:kFont(14)];
     [button setTitle:@"取消" forState:UIControlStateNormal];
-    [button setFrame:CGRectMake(kSW - 50, 7, 50, 30)];
+    [button setFrame:CGRectMake(kScreenWidth - 50, 7, 50, 30)];
     [self.navigationController.navigationBar addSubview:button];
 }
 
