@@ -247,7 +247,7 @@
         _resultVC.searchText = textField.placeholder;
     }
     @weakify(self);
-    [self.rt_navigationController pushViewController:self.resultVC animated:YES complete:^(BOOL finished) {
+    [self.rt_navigationController pushViewController:self.resultVC animated:NO complete:^(BOOL finished) {
         @strongify(self);
         [self removeViewController:self.resultVC];
     }];

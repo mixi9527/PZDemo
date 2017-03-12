@@ -59,6 +59,7 @@
         searchField.returnKeyType = UIReturnKeySearch;
         searchField.backgroundColor = kRGB(0xEFEFEF);
         searchField.textColor = kRGB(0x31323A);
+        searchField.clearButtonMode = UITextFieldViewModeNever;
     }
     [self.navigationItem setTitleView:_sb];
 }
