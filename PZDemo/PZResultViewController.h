@@ -6,6 +6,9 @@
 //  Copyright © 2017年 Jee. All rights reserved.
 //
 
+/**
+ 搜索结果页
+ */
 @interface PZResultViewController : PZBaseViewController
 
 @end

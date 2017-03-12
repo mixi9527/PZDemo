@@ -11,7 +11,10 @@
 
 @interface PZSearchViewController () <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
-/// 搜索栏
+/**
+ 搜索栏
+ 通过UItextField实现
+ */
 @property (strong, nonatomic) UITextField *textField;
 /// 热门搜索和历史搜索列表视图
 @property (strong, nonatomic) UITableView *searchTableView;
@@ -37,6 +40,7 @@
     [self createTableView];
     _tips = @[].copy;
     _hots = @[].copy;
+    _histories = @[@"感冒灵", @"云南白药", @"西瓜霜", @"人生如梦", @"爱如潮水", @"你是个猪", @"测试数据"];
 }
 
 /// 重写返回按钮
@@ -128,7 +132,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"historiesCell"];
         }
         [cell.textLabel setFont:kFont(14)];
-        [cell.textLabel setText:@"搜索记录1"];
+        [cell.textLabel setText:_histories[indexPath.row]];
         return cell;
     }
 }
@@ -136,18 +140,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     PZResultViewController *toVC = [PZResultViewController new];
+    NSString *searchText = @"";
     if (_tips.count > 0) {
         // 点击了搜索提示
+        searchText = _tips[indexPath.row];
     } else {
         // 点击了历史记录
+        searchText = _histories[indexPath.row];
     }
-    [self.rt_navigationController pushViewController:toVC animated:YES];
-    [self removeViewController];
+    @weakify(self);
+    [self.rt_navigationController pushViewController:toVC animated:YES complete:^(BOOL finished) {
+        @strongify(self);
+        toVC.title = searchText;
+        [self removeViewController:toVC];
+    }];
     
 }
 
 /// 移除重复的搜索和搜索结果视图控制器
-- (void)removeViewController {
+- (void)removeViewController:(UIViewController *)viewController {
     NSMutableArray *array = [NSMutableArray arrayWithArray:[self.rt_navigationController rt_viewControllers]];
     for (int i = 0; i < array.count; i++) {
         UIViewController *vc = [array objectAtIndex:i];
@@ -155,13 +166,13 @@
             // 去掉之前的搜索界面
             [array removeObject:vc];
             i--;
-        } else if ([vc isKindOfClass:[PZResultViewController class]]) {
+        } else if ([vc isKindOfClass:[viewController class]]) {
             // 去掉重复的药品列表界面
             [array removeObject:vc];
             i--;
         }
     }
-    [array addObject:[PZResultViewController new]];
+    [array addObject:viewController];
     [self.rt_navigationController setViewControllers:array animated:NO];
 
 }
@@ -232,7 +243,7 @@
 - (void)searchFinished:(UITextField *)textField {
     // 去空格
     NSString *result = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    __block NSString *searchText = @"";
+    NSString *searchText = @"";
     if (result.length > 0) {
         DLog(@"点击了搜索按钮, >>>>>%@", textField.text);
         searchText = textField.text;
@@ -241,11 +252,13 @@
         searchText = textField.placeholder;
     }
     PZResultViewController *resultVC = [PZResultViewController new];
+    @weakify(self);
     [self.rt_navigationController pushViewController:resultVC animated:YES complete:^(BOOL finished) {
+        @strongify(self);
         DLog(@"%@", searchText);
         resultVC.title = searchText;
+        [self removeViewController:resultVC];
     }];
-    [self removeViewController];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

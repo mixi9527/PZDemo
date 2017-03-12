@@ -14,16 +14,6 @@
 /// 圆角弧度
 #define kCornerRadius 8.0f
 
-/// 强弱引用
-#define weakify(...) \
-ext_keywordify \
-metamacro_foreach_cxt(ext_weakify_,, __weak, __VA_ARGS__)
-#define strongify(...) \
-ext_keywordify \
-_Pragma("clang diagnostic push") \
-_Pragma("clang diagnostic ignored \"-Wshadow\"") \
-metamacro_foreach(ext_strongify_,, __VA_ARGS__) \
-_Pragma("clang diagnostic pop")
 /// 打印
 #ifdef DEBUG
 #define DLog(format, ...) printf("\n[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);

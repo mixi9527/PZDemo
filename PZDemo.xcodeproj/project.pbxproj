@@ -17,7 +17,7 @@
 		55C245211E72B79A008BAFE5 /* PZDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C245201E72B79A008BAFE5 /* PZDemoTests.m */; };
 		55C2452C1E72B79B008BAFE5 /* PZDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C2452B1E72B79B008BAFE5 /* PZDemoUITests.m */; };
 		55D9E8811E72E00D006222A9 /* PZRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D9E87F1E72E00D006222A9 /* PZRootViewController.m */; };
-		55D9E8821E72E00D006222A9 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D9E8801E72E00D006222A9 /* RootViewController.xib */; };
+		55D9E8821E72E00D006222A9 /* PZRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D9E8801E72E00D006222A9 /* PZRootViewController.xib */; };
 		55D9E8861E72F8B1006222A9 /* PZResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55D9E8841E72F8B1006222A9 /* PZResultViewController.m */; };
 		55D9E8871E72F8B1006222A9 /* PZResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D9E8851E72F8B1006222A9 /* PZResultViewController.xib */; };
 /* End PBXBuildFile section */
@@ -62,7 +62,7 @@
 		55C2453A1E72BD61008BAFE5 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		55D9E87E1E72E00D006222A9 /* PZRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZRootViewController.h; sourceTree = "<group>"; };
 		55D9E87F1E72E00D006222A9 /* PZRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZRootViewController.m; sourceTree = "<group>"; };
-		55D9E8801E72E00D006222A9 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		55D9E8801E72E00D006222A9 /* PZRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PZRootViewController.xib; sourceTree = "<group>"; };
 		55D9E8831E72F8B1006222A9 /* PZResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZResultViewController.h; sourceTree = "<group>"; };
 		55D9E8841E72F8B1006222A9 /* PZResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZResultViewController.m; sourceTree = "<group>"; };
 		55D9E8851E72F8B1006222A9 /* PZResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PZResultViewController.xib; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 			children = (
 				55D9E87E1E72E00D006222A9 /* PZRootViewController.h */,
 				55D9E87F1E72E00D006222A9 /* PZRootViewController.m */,
-				55D9E8801E72E00D006222A9 /* RootViewController.xib */,
+				55D9E8801E72E00D006222A9 /* PZRootViewController.xib */,
 				55B880CE1E743E0000A96629 /* PZBaseViewController.h */,
 				55B880CF1E743E0000A96629 /* PZBaseViewController.m */,
 			);
@@ -324,7 +324,7 @@
 			files = (
 				55C245161E72B79A008BAFE5 /* LaunchScreen.storyboard in Resources */,
 				55C245131E72B79A008BAFE5 /* Assets.xcassets in Resources */,
-				55D9E8821E72E00D006222A9 /* RootViewController.xib in Resources */,
+				55D9E8821E72E00D006222A9 /* PZRootViewController.xib in Resources */,
 				55D9E8871E72F8B1006222A9 /* PZResultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

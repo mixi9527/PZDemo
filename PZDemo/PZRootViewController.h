@@ -6,8 +6,9 @@
 //  Copyright © 2017年 Jee. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface PZRootViewController : UIViewController
+/**
+ 根视图控制器
+ */
+@interface PZRootViewController : PZBaseViewController
 
 @end

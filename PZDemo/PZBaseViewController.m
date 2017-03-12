@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.view.backgroundColor = kRColor;
+}
+
+- (UIBarButtonItem *)customBackItemWithTarget:(id)target action:(SEL)action {
+    return nil;
 }
 
 - (void)didReceiveMemoryWarning {

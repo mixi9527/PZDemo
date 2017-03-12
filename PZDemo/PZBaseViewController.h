@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 视图控制器基类
+ */
 @interface PZBaseViewController : UIViewController
 
 @end
