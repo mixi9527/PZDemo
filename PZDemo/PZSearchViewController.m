@@ -45,8 +45,7 @@
 
 /// 重写返回按钮
 - (UIBarButtonItem *)customBackItemWithTarget:(id)target action:(SEL)action {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    return item;
+    return nil;
 }
 
 /// 初始化tableView
@@ -79,7 +78,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_tips.count == 0) {
-        return 10;
+        return _histories.count;
     }
     return _tips.count;
 }

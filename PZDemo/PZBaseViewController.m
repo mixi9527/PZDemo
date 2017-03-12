@@ -21,7 +21,19 @@
 }
 
 - (UIBarButtonItem *)customBackItemWithTarget:(id)target action:(SEL)action {
-    return nil;
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(0, 0, 30, 30);
+    [leftButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton setImageEdgeInsets:UIEdgeInsetsMake(0, -15, 0, 0)];
+    //图片 居左
+    [leftButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    return backItem;
+}
+
+- (void)back {
+    [self.rt_navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
