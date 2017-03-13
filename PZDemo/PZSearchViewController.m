@@ -231,7 +231,7 @@
 - (CGFloat)calculateWidthWithText:(NSString *)text andFont:(UIFont *)font {
     CGSize size = CGSizeMake (MAXFLOAT, MAXFLOAT);
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingMiddle;
     CGRect rect = [text boundingRectWithSize:size
                                      options:NSStringDrawingUsesLineFragmentOrigin
                                   attributes:@{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle.copy}
